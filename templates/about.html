@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+  <title>bswds | About</title>
+  <style>
+  body{
+      background: #b27f4c;
+
+  }
+header{
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 20px;
+  margin:0px;
+
+
+  border: 7px solid green;
+border-radius: 20px;
+}
+#meow{
+  color:#ADD8E6;
+  }
+  a{
+    text-decoration: none;
+  }
+a:hover {
+text-decoration: underline;
+}
+#ul{
+  padding:5px;
+  background:brown;
+}
+
+
+#li{
+  display:inline;
+  padding:0px 100px 0px 100px;
+}
+
+
+div{
+  display: inline;
+
+}
+.popular_profiles{
+  float:left;
+  width:350px;
+
+
+}
+.recent_comments{
+  float:right;
+  text-align: center;
+
+}
+.profile_specific_stuff{
+  float:left;
+  width:400px;
+  word-wrap:break-word;
+}
+.test{
+  list-style-position: inside;
+  padding-left:0;
+}
+
+@media (max-width:900px){
+#li{
+  display:block;
+  padding:5px;
+}
+header{
+  font-size: 17px;
+}
+.profile_specific_stuff{
+  width:300px;
+}
+.popular_profiles{
+  width:150px;
+}
+
+}
+@media (max-width:750px){
+.recent_comments{
+  display: none;
+}
+.popular_profiles{
+  width:200px;
+}
+
+}
+@media (max-width:600px){
+  .popular_profiles{
+    display: none;
+  }
+  .recent_comments{
+    display: none;
+  }
+  header{
+    font-size: 10px;
+  }
+
+}
+
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>Black swd search - Write anything about anybody anonymously</h1>
+<ul id="ul">
+<li id="li"><a href="/" id="meow">Home</a></li>
+<li id="li"><a href="/about" id="meow">About</a></li>
+<li id="li"><a href="/random" id="meow">Random profile</a></li>
+</ul>
+  </header>
+
+  <div class="popular_profiles">
+
+  <h2>Most popular profiles: </h2>
+  <hr style="border-color:brown;" >
+
+  <ol class="test">
+  {% for profile in top_profiles %}
+  <h4><li id="test"><a href="/{{profile.idno}}">{{profile.name}}</a> {{profile.idno}} </li></h4>
+
+  {% endfor %}
+  </ol>
+
+  </div>
+
+<div class="profile_specific_stuff" >
+  <h2 style="text-align:center">About Page</h2>
+  <p><b> This website is an alternative to swd search. And it's better. <p>It has more functionality. You can write anything about anyone and
+    you can view what others have written about someone (among other things).</p>
+Use this website instead of swd search from now onwards. </b></p>
+<p><b>i repeat</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+<p><b>USE THIS WEBSITE INSTEAD OF SWD SEARCH FROM NOW ONWARDS</b></p>
+</div>
+
+
+
+
+
+
+
+<div class="recent_comments">
+
+<h2>Most recent comments : </h2>
+<hr style="border-color:brown">
+
+{% for comment in recent_comments %}
+({{comment.created|timesince}} ago)<br>
+<b>on: <a href="/{{comment.student.idno}}">{{comment.student.name}}</a></b>
+<h3 style="margin:0">{{comment.short_title}} </h3>
+{{comment.short_content}} <br><br>
+<br>
+
+{% endfor %}
+</div>
+</body>

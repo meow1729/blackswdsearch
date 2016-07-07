@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<head>
+  <title>bswds | {{student.name}}</title>
+  <style>
+  body{
+      background: #b27f4c;
+
+  }
+header{
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 20px;
+  margin:0px;
+
+
+  border: 7px solid green;
+border-radius: 20px;
+}
+#meow{
+  color:#ADD8E6;
+  }
+  a{
+    text-decoration: none;
+  }
+a:hover {
+text-decoration: underline;
+}
+#ul{
+  padding:5px;
+  background:brown;
+}
+
+
+#li{
+  display:inline;
+  padding:0px 100px 0px 100px;
+}
+
+
+div{
+  display: inline;
+
+}
+.popular_profiles{
+  float:left;
+  width:350px;
+
+
+}
+.recent_comments{
+  float:right;
+  text-align: center;
+
+}
+.profile_specific_stuff{
+  float:left;
+  width:400px;
+  word-wrap:break-word;
+}
+.test{
+  list-style-position: inside;
+  padding-left:0;
+}
+
+@media (max-width:900px){
+#li{
+  display:block;
+  padding:5px;
+}
+header{
+  font-size: 17px;
+}
+.profile_specific_stuff{
+  width:300px;
+}
+.popular_profiles{
+  width:150px;
+}
+
+}
+@media (max-width:750px){
+.recent_comments{
+  display: none;
+}
+.popular_profiles{
+  width:200px;
+}
+
+}
+@media (max-width:600px){
+  .popular_profiles{
+    display: none;
+  }
+  .recent_comments{
+    display: none;
+  }
+  header{
+    font-size: 10px;
+  }
+
+}
+
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>Black swd search - Write anything about anybody anonymously</h1>
+<ul id="ul">
+<li id="li"><a href="/" id="meow">Home</a></li>
+<li id="li"><a href="/about" id="meow">About</a></li>
+<li id="li"><a href="/random" id="meow">Random profile</a></li>
+</ul>
+  </header>
+
+  <div class="popular_profiles">
+
+  <h2>Most popular profiles: </h2>
+  <hr style="border-color:brown;" >
+
+  <ol class="test">
+  {% for profile in top_profiles %}
+  <h4><li id="test"><a href="/{{profile.idno}}">{{profile.name}}</a> {{profile.idno}} </li></h4>
+
+  {% endfor %}
+  </ol>
+
+  </div>
+
+<div class="profile_specific_stuff">
+<br>
+<h2 style="margin:0 ;text-align:center" >{{student.name}}</h2>
+<h3 style="margin:0 ;text-align:center" >{{student.idno}}</h3>
+<h3 style="margin:0 ;text-align:center" >{{student.hostel}} {{student.room}}</h3>
+<h3 style="margin:0 ;text-align:center" >{%if student.sex%} Male {%else%}Female {%endif%}</h3>
+<h3 style="margin:0 ;text-align:center" >{{n}} comments</h3>
+<br>
+
+
+
+<p>Write anything you want about <b>{{first}}</b>: </p>
+
+<form method='POST' autocomplete="off">
+  {% csrf_token %}
+  <input style="width:100%;height:30px;font-size:20px;padding: 5px 5px; border: 2px solid brown;
+  border-radius: 4px;background-color:#CCCC00;"type="text" required name="title" maxlength="100" placeholder="Title-max 100 characters">
+  <br><br>
+  <textarea style="width:100%;height:200px;font-size:15px;padding: 5px 5px;border: 2px solid brown;
+  border-radius: 4px;background-color:#CCCC00;resize:none;" required maxlength="10000" name="content" placeholder="Content-max 10000 characters"></textarea>
+  <br>
+    <input type="submit" style="
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  "><br>
+  {% for error in errors %}
+  <span style="color:#990000">Error: {{error}}</span><br>
+  {% endfor %}
+
+</form>
+
+<h1 style="color:#8C1717"> All Previous Comments :- </h1><hr style="border-color:brown">
+{% for i in comments %}
+({{i.created|timesince}} ago)
+<p style="font-size:20px; margin:0"><b>{{i.title}} </b></p>
+  <p>{{i.content|linebreaks}}</p><br><hr style="border-color:brown">
+  {% endfor %}
+</div>
+
+
+
+
+
+
+
+<div class="recent_comments">
+
+<h2>Most recent comments : </h2>
+<hr style="border-color:brown">
+
+{% for comment in recent_comments %}
+({{comment.created|timesince}} ago)<br>
+<b>on: <a href="/{{comment.student.idno}}">{{comment.student.name}}</a></b>
+<h3 style="margin:0">{{comment.short_title}} </h3>
+{{comment.short_content}} <br><br>
+<br>
+
+{% endfor %}
+</div>
+</body>

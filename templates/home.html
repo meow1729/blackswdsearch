@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<head>
+  <title>bswds | home</title>
+  <style>
+  body{
+      background: #b27f4c;
+
+  }
+header{
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 20px;
+  margin:0px;
+
+  border: 7px solid green;
+border-radius: 20px;
+}
+
+
+#meow{
+  color:#ADD8E6;
+  }
+  a{
+    text-decoration: none;
+  }
+a:hover {
+text-decoration: underline;
+}
+#ul{
+  padding:5px;
+  background:brown;
+}
+
+
+#li{
+  display:inline;
+  padding:0px 100px 0px 100px;
+}
+
+div{
+  display: inline;
+
+}
+.popular_profiles{
+  float:left;
+  width:350px;
+
+}
+.recent_comments{
+  float:right;
+  text-align: center;
+
+}
+.homepage_specific_stuff{
+  float:left;
+  text-align: center;
+
+
+}
+.test{
+  list-style-position: inside;
+  padding-left:0;
+}
+@media (max-width:1100px){
+  .popular_profiles{
+    width:150px;
+  }
+}
+@media (max-width:900px){
+#li{
+  display:block;
+  padding:5px;
+}
+header{
+  font-size: 17px;
+}
+.homepage_specific_stuff{
+  width:300px;
+}
+.popular_profiles{
+  width:150px;
+}
+
+}
+@media (max-width:750px){
+.recent_comments{
+  display: none;
+}
+.popular_profiles{
+  width:200px;
+}
+
+}
+@media (max-width:600px){
+  .popular_profiles{
+    display: none;
+  }
+  .recent_comments{
+    display: none;
+  }
+  header{
+    font-size: 10px;
+  }
+
+}
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+  <header>
+    <h1>Black swd search - Write anything about anybody anonymously</h1>
+<ul id="ul">
+<li id="li"><a href="/" id="meow">Home</a></li>
+<li id="li"><a href="/about" id="meow">About</a></li>
+<li id="li"><a href="/random" id="meow">Random profile</a></li>
+</ul>
+  </header>
+
+
+  <div class="popular_profiles">
+
+  <h2>Most popular profiles: </h2>
+<hr style="border-color:brown;" >
+
+  <ol class="test">
+  {% for profile in top_profiles %}
+<h4><li id="test"><a href="/{{profile.idno}}">{{profile.name}}</a> {{profile.idno}} </li></h4>
+
+  {% endfor %}
+</ol>
+
+  </div>
+
+<div class="homepage_specific_stuff">
+<br>
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    <tr>
+<td><b>IDNO</b></td>  <td><input type="text" name="idno" value="{{idno}}"></td>
+<td><b>NAME</b></td>  <td><input type="text" name="name" value="{{name}}"></td>
+</tr>
+<tr></tr>
+<tr>
+<td><b>HOSTEL</b></td> <td> <select name="hostel">
+  <option value="ALL" {%if hostel == "ALL"%}selected="selected"{%endif%}>ALL</option>
+  <option value="AK" {%if hostel == "AK"%}selected="selected"{%endif%}>AK</option>
+  <option value="BD" {%if hostel == "BD"%}selected="selected"{%endif%}>BD</option>
+  <option value="BG" {%if hostel == "BG"%}selected="selected"{%endif%}>BG</option>
+  <option value="CVR" {%if hostel == "CVR"%}selected="selected"{%endif%}>CVR</option>
+  <option value="GN" {%if hostel == "GN"%}selected="selected"{%endif%}>GN</option>
+  <option value="KR" {%if hostel == "KR"%}selected="selected"{%endif%}>KR</option>
+  <option value="LG" {%if hostel == "LG"%}selected="selected"{%endif%}>LG</option>
+  <option value="ML" {%if hostel == "ML"%}selected="selected"{%endif%}>ML</option>
+  <option value="MLE" {%if hostel == "MLE"%}selected="selected"{%endif%}>MLE</option>
+  <option value="MR" {%if hostel == "MR"%}selected="selected"{%endif%}>MR</option>
+  <option value="NA" {%if hostel == "NA"%}selected="selected"{%endif%}>NA</option>
+  <option value="PRE-FAB" {%if hostel == "PRE-FAB"%}selected="selected"{%endif%}>PRE-FAB</option>
+  <option value="PS" {%if hostel == "PS"%}selected="selected"{%endif%}>PS</option>
+  <option value="RM" {%if hostel == "RM"%}selected="selected"{%endif%}>RM</option>
+  <option value="RP" {%if hostel == "RP"%}selected="selected"{%endif%}>RP</option>
+  <option value="SK" {%if hostel == "SK"%}selected="selected"{%endif%}>SK</option>
+  <option value="SR" {%if hostel == "SR"%}selected="selected"{%endif%}>SR</option>
+  <option value="VK" {%if hostel == "VK"%}selected="selected"{%endif%}>VK</option>
+  <option value="VY" {%if hostel == "VY"%}selected="selected"{%endif%}>VY</option>
+</select>
+</td>
+<td>
+<b>ROOM</b>
+</td>
+<td>
+  <input type="text" name="room" value="{{room}}">
+</td>
+</tr>
+<tr></tr>
+<tr>
+
+<td>
+<b>SEX</b>
+</td>
+<td>
+<input type="checkbox" name="sex1" value="M" {%if m%}checked{% endif %}> M
+<input type="checkbox" name="sex2" value="F" {%if f%}checked{% endif %}> F
+</td>
+<td>
+<b>SORT BY</b>
+</td>
+<td>
+<select name="sortby">
+  <option value="popularity" {%if sortby == "popularity"%}selected="selected"{%endif%}>popularity</option>
+  <option value="number_of_comments" {%if sortby == "number_of_comments"%}selected="selected"{%endif%}>number of comments</option>
+  <option value="room" {%if sortby == "room"%}selected="selected"{%endif%}>room</option>
+</select></td></tr>
+<tr></tr>
+
+
+</table>
+<br><br>
+<input type="submit" name="searchBtn" value="SEARCH" id="searchBtn" style="color:White;background-color:Green;border-color:#00C000;border-style:Outset;font-size:X-Small;font-weight:bold;height:24px;width:96px;" />
+
+</form>
+
+
+<br><br>
+{% if n%}
+{{n}} entries found
+{% endif %}
+<br><br>
+{% if search_results%}
+<table border="1" cellspacing="0" cellpadding="0" style="border-color:#004000;border-style:Double;width:496px;border-collapse:collapse;">
+  <tr>
+    <th>IDNO</th>
+    <th>NAME</th>
+    <th>HOSTEL</th>
+    <th>ROOM</th>
+    <th>SEX</th>
+  </tr>
+  {%endif%}
+{% for result in search_results%}
+<tr>
+<td>{{result.idno}}</td> <td><a href="/{{result.idno}}">{{result.name}}</a></td>
+<td>{{result.hostel}}</td> <td> {{result.room}}</td> <td>{% if result.sex %}M{% else %}F{%endif%}</td>
+<tr>
+{% endfor %}
+</table>
+</div>
+
+
+
+
+
+<div class="recent_comments">
+
+<h2>Most recent comments : </h2>
+<hr style="border-color:brown">
+
+{% for comment in recent_comments %}
+({{comment.created|timesince}} ago)<br>
+<b>on: <a href="/{{comment.student.idno}}">{{comment.student.name}}</a></b>
+<h3 style="margin:0">{{comment.short_title}} </h3>
+{{comment.short_content}} <br><br>
+<br>
+
+{% endfor %}
+</div>
+</body>
